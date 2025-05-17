@@ -1,21 +1,20 @@
 #include "StringReverser.hpp"
 #include <iostream>
-#include <cstring> 
+#include <cstring>
 
 using namespace std;
 
 StringReverser::StringReverser(const char* input) {
     length = strlen(input);
-
     originalString = new char[length + 1];
     reversedString = new char[length + 1];
 
     const char* wordInput = input;
-    char* wordOutout = originalString;
+    char* wordOutput = originalString;
     while (*wordInput != '\0') {
-        *wordOutout++ = *wordInput++;
+        *wordOutput++ = *wordInput++;
     }
-    *wordOutout = '\0';
+    *wordOutput = '\0';
 
     const char* pointerIn = originalString + length - 1;
     char* pointerOut = reversedString;
@@ -25,12 +24,12 @@ StringReverser::StringReverser(const char* input) {
     *pointerOut = '\0';
 }
 
+StringReverser::~StringReverser() {
+    delete[] originalString;
+    delete[] reversedString;
+}
+
 void StringReverser::printStrings() {
     cout << "Original string: " << originalString << endl;
     cout << "Reversed string: " << reversedString << endl;
-}
-
-void StringReverser::ResetReverser() {
-    delete[] originalString;
-    delete[] reversedString;
 }

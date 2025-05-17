@@ -8,9 +8,9 @@ private:
     int length;
 
 public:
-    StringReverser(const char* input); 
-    void printStrings();      
-    void ResetReverser();         
+    StringReverser(const char* input);
+    ~StringReverser();
+    void printStrings();
 };
 
 #endif
